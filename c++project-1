@@ -1,0 +1,74 @@
+TITLE:BANK ACCOUNT
+NAME:A.NISHINTHA
+CLASS:CSE-C
+#include<iostream>
+using namespace std;
+class bankaccount
+{
+    private:
+      string accountholder;
+      double balance;
+    public:
+      bankaccount(string holder,double initialbalance=0)
+      {
+        accountholder=holder;
+        balance=initialbalance;
+      }
+      void deposit(double amount)
+      {
+        if(amount>0)
+        {  
+          balance+=amount;
+          cout<<"Deposited Rs"<<amount<<".Newbalance:Rs"<<balance<<endl;
+        }
+        else
+        {
+            cout<<"Invalid Deposit Amount."<<endl;
+        }
+      }
+      void withdraw(double amount)
+      {
+          if(amount>0 && amount<=balance)
+          {
+             balance-=amount;
+             cout<<"Withdrawn Rs"<<amount<<".Newbalance:Rs"<<balance<<endl;
+          }
+          else
+          {
+              cout<<"Invalid Withdrawal Amount."<<endl;
+          }
+      }
+      void getBalance()
+      {
+          cout<<"Balance for "<<accountholder<<":Rs"<<balance<<endl;
+      }
+};
+int main()
+{
+    string accountholder;
+    double initialbalance;
+    cout<<"Enter accountHolder's name:";
+    cin>>accountholder;
+    cout<<"Enter initial balance:Rs";
+    cin>>initialbalance;
+    bankaccount account(accountholder,initialbalance);
+    double depositamount,withdrawamount;
+    cout<<"Enter Deposit Amount:Rs";
+    cin>>depositamount;
+    account.deposit(depositamount);
+    cout<<"Enter Withdrawl Amount:Rs";
+    cin>>withdrawamount;
+    account.withdraw(withdrawamount);
+    account.getBalance();
+    return 0;
+}
+OUTPUT:
+   Enter accountHolder's name:Nivetha
+   Enter initial balance:Rs10000
+   Enter Deposit Amount:Rs20000
+   Deposited Rs20000.Newbalance:Rs30000
+   Enter Withdrawl Amount:Rs5000
+   Withdrawn Rs5000.Newbalance:Rs25000
+   Balance for Nivetha:Rs25000
+
+                          
